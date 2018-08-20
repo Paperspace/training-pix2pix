@@ -92,7 +92,7 @@ class PytorchCheckpointDumper(CheckpointDumper):
     """
     for (var_name, var_weights) in iteritems(self.state_dictionary):
       if (self.should_ignore(var_name)):
-        print('Ignoring ' + var_name)
+        #print('Ignoring ' + var_name)
         continue
 
       var_filename = self.var_name_to_filename(var_name)

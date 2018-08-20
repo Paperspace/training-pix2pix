@@ -91,7 +91,7 @@ class TensorflowCheckpointDumper(CheckpointDumper):
 
     for (var_name, var_shape) in iteritems(var_to_shape_map):
       if self.should_ignore(var_name) or var_name == 'global_step':
-        print('Ignoring ' + var_name)
+        #print('Ignoring ' + var_name)
         continue
 
       var_filename = self.var_name_to_filename(var_name)

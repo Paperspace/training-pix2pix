@@ -1,5 +1,6 @@
 import os
-import tempfile
+os.environ["TF_CPP_MIN_LOG_LEVEL"]="3"
+from tempfile import TemporaryDirectory
 import subprocess as sp
 import json
 import struct
@@ -37,8 +38,8 @@ def main(checkpoint, output_file):
         raise Exception("failed to find model path")
 
     checkpoint_file = os.path.join(checkpoint, model_path)
-    print(checkpoint_file, model_path)
-    with tempfile.TemporaryDirectory() as tmp_dir:
+    # print(checkpoint_file, model_path)
+    with TemporaryDirectory() as tmp_dir:
         cmd = ["python", "-u", os.path.join(SCRIPT_DIR, "dump_checkpoints/dump_checkpoint_vars.py"), "--model_type", "tensorflow", "--output_dir", tmp_dir, "--checkpoint_file", checkpoint_file]
         sp.check_call(cmd)
 

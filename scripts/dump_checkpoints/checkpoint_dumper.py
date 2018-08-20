@@ -117,7 +117,7 @@ class CheckpointDumper(object):
     """
     self.manifest[variable_name] = {'filename': filename, 'shape': shape}
 
-    print('Writing variable ' + variable_name + '...')
+    #print('Writing variable ' + variable_name + '...')
     with open(os.path.join(self.output_dir, filename), 'wb') as f:
       f.write(weights.tobytes())
 
